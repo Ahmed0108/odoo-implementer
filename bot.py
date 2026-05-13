@@ -398,22 +398,7 @@ def scrape_odoo_official():
             jobs.append(make_job(title,"Odoo S.A.","Belgium/Remote",link,"Odoo Official 🟣"))
     return jobs
  
-def scrape_reddit():
-    jobs = []
-    for sub in ["jobs","remotework","odoo","ERP"]:
-        try:
-            r = requests.get(
-                f"https://www.reddit.com/r/{sub}/search.json?q=odoo+implementer&sort=new&restrict_sr=1",
-                headers={**HEADERS, "User-Agent": "OdooJobBot/1.0"}, timeout=20)
-            for p in r.json().get("data",{}).get("children",[]):
-                d = p.get("data",{})
-                title = d.get("title","")
-                if is_relevant(title):
-                    jobs.append(make_job(title, f"r/{sub}","",
-                        "https://reddit.com"+d.get("permalink",""), "Reddit 🔴"))
-        except Exception as ex:
-            log.warning(f"Reddit: {ex}")
-    return jobs
+
  
 def scrape_telegram_channels():
     jobs = []
