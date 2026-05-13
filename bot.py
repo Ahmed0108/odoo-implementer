@@ -432,7 +432,6 @@ ALL_SCRAPERS = [
     ("Upwork 💼",          scrape_upwork),
     ("WeWorkRemotely 🌍",  scrape_weworkremotely),
     ("Odoo Official 🟣",   scrape_odoo_official),
-    ("Reddit 🔴",          scrape_reddit),
     ("Telegram 📢",        scrape_telegram_channels),
 ]
  
